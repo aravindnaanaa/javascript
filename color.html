@@ -7,7 +7,21 @@
     <title>Document</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('#red').onclick = function() {
+
+            document.querySelectorAll('button').forEach(function(but) {
+                but.onclick = function() {
+                    document.querySelector('#colors').style.color = but.dataset.color;
+                }
+            })
+
+            /*
+            document.querySelectorAll('button').forEach((but)=> {
+                but.onclick = function() {
+                    document.querySelector('#colors').style.color = but.dataset.color;
+                }
+            })
+            
+            document.querySelector('#red').onclick = () => {
                 document.querySelector('#colors').style.color = 'red';
             }
             document.querySelector('#blue').onclick = function() {
@@ -16,6 +30,7 @@
             document.querySelector('#green').onclick = function() {
                 document.querySelector('#colors').style.color = 'green';
             }
+            */
 
         })
     </script>
@@ -23,9 +38,9 @@
 
 <body>
     <h1 id="colors">colors</h1>
-    <button id="blue">blue</button>
-    <button id="red">red</button>
-    <button id="green">green</button>
+    <button data-color="blue">blue</button>
+    <button data-color="red">red</button>
+    <button data-color="green">green</button>
 </body>
 
 </html>
